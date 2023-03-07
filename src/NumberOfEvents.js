@@ -21,7 +21,7 @@ class NumberOfEvents extends Component {
 
     render() {
         return (
-            <div className="events-number">
+            <div className="numberOfEvents">
                 <label className="events-number-label" htmlFor="events-number-search">Number of Events</label>
                 <input
                 type="number"
