@@ -72,9 +72,8 @@ const removeQuery = () => {
             window.location.pathname;
         window.history.pushState('', '', newUrl);
     } else {
-        var newUrl = 
-            window.location.protocol + '//' + window.location.host;
-            window.history.pushState('', '', newUrl);
+        var newUrl = window.location.protocol + '//' + window.location.host;
+        window.history.pushState('', '', newUrl);
     }
 };
 
@@ -82,9 +81,7 @@ const getToken = async (code) => {
 
     try {
         const encodedCode = encodeURIComponent(code);
-        const response = await fetch(
-            'https://xu4zqkq10e.execute-api.eu-central-1.amazonaws.com/dev/api/token' + '/' + encodedCode
-            )
+        const response = await fetch(`https://xu4zqkq10e.execute-api.eu-central-1.amazonaws.com/dev/api/token/${encodedCode}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`)
         }
