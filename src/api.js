@@ -53,13 +53,15 @@ export const getEvents = async () => {
         removeQuery();
         const url = 'https://xu4zqkq10e.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
         const result = await axios.get(url);
+        var events;
         if (result.data) {
-            const locations = extractLocations(result.data.events);
-            localStorage.setItem('lastLocations', JSON.stringify(result.data.events));
+            events = result.data.events;
+            var locations = extractLocations(events);
+            localStorage.setItem('lastLocations', JSON.stringify(events));
             localStorage.setItem('locations', JSON.stringify(locations));
         }
         NProgress.done();
-        return result.data.events;
+        return events;
     }
 };
 
@@ -91,6 +93,6 @@ const getToken = async (code) => {
         return access_token;
 
     } catch (error) {
-        error.json()
+        error.json();
     }
 };
