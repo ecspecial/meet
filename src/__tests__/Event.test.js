@@ -39,14 +39,14 @@ describe('<Event /> component', () => {
     });
 
     test('renders show details button when details is false', () => {
-        expect(EventWrapper.find('.details-button')).toHaveLength(1);
-        expect(EventWrapper.find('.details-button').text()).toBe('show details');
+        expect(EventWrapper.find('.details-btn')).toHaveLength(1);
+        expect(EventWrapper.find('.details-btn').text()).toBe('show details');
     });
 
     test('renders no details by default', () => {
         expect(EventWrapper.state('details')).toBe(false);
-        expect(EventWrapper.find('.details-button')).toHaveLength(1);
-        expect(EventWrapper.find('.details-button').text()).toBe('show details');
+        expect(EventWrapper.find('.details-btn')).toHaveLength(1);
+        expect(EventWrapper.find('.details-btn').text()).toBe('show details');
         expect(EventWrapper.find('.event-details')).toHaveLength(0);
         expect(EventWrapper.find('.about-event-header')).toHaveLength(0);
         expect(EventWrapper.find('.event-link')).toHaveLength(0);
@@ -54,7 +54,7 @@ describe('<Event /> component', () => {
     });
 
     test('renders details when "show details" button is clicked', () => {
-        EventWrapper.find('.details-button').simulate('click');
+        EventWrapper.find('.details-btn').simulate('click');
         expect(EventWrapper.state('details')).toBe(true);
         expect(EventWrapper.find('.event-details')).toHaveLength(1);
         expect(EventWrapper.find('.about-event-header')).toHaveLength(1);
@@ -64,14 +64,14 @@ describe('<Event /> component', () => {
         expect(EventWrapper.find('.event-link').text()).toBe('See details on Google Calendar');
         expect(EventWrapper.find('.event-link').prop('href')).toBe(`${event.htmlLink}`);
         expect(EventWrapper.find('.event-description').text()).toBe(`${event.description}`);
-        expect(EventWrapper.find('.details-button').text()).toBe('hide details');
+        expect(EventWrapper.find('.details-btn').text()).toBe('hide details');
     });
 
     test('collapses details when "hide details" button is clicked', () => {
-        EventWrapper.find('.details-button').simulate('click');
+        EventWrapper.find('.details-btn').simulate('click');
         expect(EventWrapper.state('details')).toBe(false);
-        expect(EventWrapper.find('.details-button')).toHaveLength(1);
-        expect(EventWrapper.find('.details-button').text()).toBe('show details');
+        expect(EventWrapper.find('.details-btn')).toHaveLength(1);
+        expect(EventWrapper.find('.details-btn').text()).toBe('show details');
         expect(EventWrapper.find('.event-details')).toHaveLength(0);
         expect(EventWrapper.find('.about-event-header')).toHaveLength(0);
         expect(EventWrapper.find('.event-link')).toHaveLength(0);
