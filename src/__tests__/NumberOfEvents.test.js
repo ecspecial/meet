@@ -14,7 +14,7 @@ describe('<NumberOfEvents component />', () => {
     });
 
     test('renders events number div', () => {
-        expect(NumberOfEventsWrapper.find('.events-number')).toHaveLength(1);
+        expect(NumberOfEventsWrapper.find('.numberOfEvents')).toHaveLength(1);
     });
 
     test('renders correct default search bar and label', () => {
