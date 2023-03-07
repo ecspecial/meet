@@ -51,17 +51,26 @@ export const getEvents = async () => {
 
     if (token) {
         removeQuery();
-        const url = 'https://xu4zqkq10e.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + token;
-        const result = await axios.get(url);
-        var events;
-        if (result.data) {
-            events = result.data.events;
-            var locations = extractLocations(events);
-            localStorage.setItem('lastLocations', JSON.stringify(events));
+        const url = `https://xu4zqkq10e.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
+
+        try {
+            const response = await axios.get(url);
+
+            let events = await response.data.events;
+            localStorage.setItem('lastEvents', JSON.stringify(events));
+
+            let locations = extractLocations(events);
             localStorage.setItem('locations', JSON.stringify(locations));
+
+            NProgress.done();
+
+            return events;
+
+        } catch (error ){
+            NProgress.done();
+            console.error(error.response);
+
         }
-        NProgress.done();
-        return events;
     }
 };
 
