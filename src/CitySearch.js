@@ -8,6 +8,21 @@ class CitySearch extends Component {
         showSuggestions: undefined
       }
 
+    componentDidMount() {
+        window.addEventListener('click', this.handleWindowClick);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('click', this.handleWindowClick);
+    }
+
+    handleWindowClick = (event) => {
+        // If the click event did not occur within the component, hide suggestions
+        if (!this.component.contains(event.target)) {
+            this.setState({ showSuggestions: false });
+        }
+    }
+
     handleInputChanged = (event) => {
         const value = event.target.value;
         const suggestions = this.props.locations.filter((location) => {
