@@ -15,8 +15,8 @@ class NumberOfEvents extends Component {
             this.setState({ errorText: "Specify a number between 1 and 256" });
         } else {
             this.setState({ eventsNumber: value })
+            this.props.updateEventsNumber(value);
         }
-
     }
 
     render() {
