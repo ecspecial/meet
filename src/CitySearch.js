@@ -42,7 +42,7 @@ class CitySearch extends Component {
             showSuggestions: false // hide suggestions when an item is clicked
         });
 
-        this.props.updateEvents(suggestion);
+        this.props.updateLocations(suggestion);
     };
 
     handleFocus = () => {
