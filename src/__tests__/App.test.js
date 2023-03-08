@@ -73,4 +73,36 @@ describe('<App /> integration', () => {
         AppWrapper.unmount();
     });
 
+    test('App passes "eventsNumber" state as a prop to EventList', () => {
+        const AppWrapper = mount(<App />);
+        const AppEventsNumberState = AppWrapper.state('eventsNumber');
+        expect(AppEventsNumberState).not.toEqual(undefined);
+        expect(AppWrapper.find(EventList).props().eventsNumber).toEqual(AppEventsNumberState);
+        AppWrapper.unmount();
+    });
+
+    test('App passes "updateEventsNumber" function as a prop to NumberOfEvents', () => {
+        const AppWrapper = mount(<App />);
+        expect(AppWrapper.find(NumberOfEvents).props().updateEventsNumber).toBeDefined();
+        AppWrapper.unmount();
+    });
+
+    test('App number of events is equal to NumberOfEvents eventsNumber state', () => {
+        const AppWrapper = mount(<App />);
+        const AppEventsNumberState = AppWrapper.state('eventsNumber');
+        expect(AppWrapper.find(NumberOfEvents).state('eventsNumber')).toEqual(AppEventsNumberState);
+        AppWrapper.unmount();
+    });
+
+    test('EventList data is equal to mockData', async () => {
+        const AppWrapper = mount(<App />);
+        const EventListWrapper = mount(<EventList events={mockData} />)
+        await getEvents();
+        for (let i = 0; i < mockData.length; i++) {
+            expect(EventListWrapper.find('.EventList li .event-summary').at(i).text()).toEqual(mockData[i].summary);
+        }
+        expect(AppWrapper.state('events')).toEqual(mockData);
+        EventListWrapper.unmount();
+        AppWrapper.unmount();
+    });
 });
