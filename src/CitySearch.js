@@ -1,78 +1,59 @@
 import React, { Component } from "react";
 
 class CitySearch extends Component {
-  state = {
-    query: "",
-    selectedCity: "",
-    showSuggestions: false,
-  };
+    
+    state = {
+        query: '',
+        suggestions: [],
+        showSuggestions: undefined
+      }
 
-  handleInputChanged = (event) => {
-    const value = event.target.value;
-    const suggestions = this.props.locations.filter((location) => {
-      return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
-    });
-    this.setState({
-      query: value,
-      showSuggestions: true,
-      selectedCity: "",
-    });
-  };
+    handleInputChanged = (event) => {
+        const value = event.target.value;
+        const suggestions = this.props.locations.filter((location) => {
+            return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
+        });
+        this.setState({
+            query: value,
+            suggestions,
+        });
+    };
+    
+    handleItemClicked = (suggestion) => {
+        this.setState({
+          query: suggestion,
+          showSuggestions: false
+        });
 
-  handleCitySelected = (event) => {
-    const value = event.target.value;
-    this.setState({
-      query: value,
-      showSuggestions: false,
-      selectedCity: value,
-    });
-    this.props.updateEvents(value);
-  };
+        this.props.updateEvents(suggestion);
+    };
 
-  render() {
-    const { query, selectedCity, showSuggestions } = this.state;
-    const { locations } = this.props;
-    const filteredLocations = locations.filter((location) => {
-      return location.toUpperCase().indexOf(query.toUpperCase()) > -1;
-    });
-
-    return (
-      <div className="CitySearch">
-        <input
-          type="text"
-          className="city"
-          value={query}
-          onChange={this.handleInputChanged}
-        />
-        {showSuggestions && (
-          <div className="suggestions">
-            {filteredLocations.map((location) => (
-              <label key={location}>
-                <input
-                  type="radio"
-                  name="city"
-                  value={location}
-                  checked={selectedCity === location}
-                  onChange={this.handleCitySelected}
+    render() {
+        return (
+            <div className="CitySearch">
+                <input 
+                    type = "text"
+                    className = "city"
+                    value = {this.state.query}
+                    onChange = {this.handleInputChanged}
+                    onFocus = { () => { this.setState({ showSuggestions: true }) }}
                 />
-                {location}
-              </label>
-            ))}
-            <label>
-              <input
-                type="radio"
-                name="city"
-                value="all"
-                checked={selectedCity === "all"}
-                onChange={this.handleCitySelected}
-              />
-              See all cities
-            </label>
-          </div>
-        )}
-      </div>
-    );
-  }
+                <ul className="suggestions" style={ 
+                    this.state.showSuggestions? {}: { display: 'none' }
+                    }>
+                    {this.state.suggestions.map((suggestion) => (
+                        <li 
+                        key={suggestion}
+                        onClick={() => this.handleItemClicked(suggestion)}
+                        >{suggestion}</li>
+                    ))}
+                    <li key="all" onClick={() => this.handleItemClicked("all")}>
+                        <b>See all cities</b>
+                    </li>
+                </ul>
+            </div>
+        );
+    }
 }
 
 export default CitySearch;
