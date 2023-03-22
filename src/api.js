@@ -33,12 +33,6 @@ export const getAccessToken = async () => {
     return accessToken;
 };
 
-export const extractLocations = (events) => {
-    var extractLocations = events.map((event) => event.location);
-    var locations = [...new Set(extractLocations)];
-    return locations;
-};
-
 export const getEvents = async () => {
     NProgress.start();
     
@@ -72,6 +66,12 @@ export const getEvents = async () => {
 
         }
     }
+};
+
+export const extractLocations = (events) => {
+    var extractLocations = events.map((event) => event.location);
+    var locations = [...new Set(extractLocations)];
+    return locations;
 };
 
 const removeQuery = () => {
