@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { InfoAlert } from "./Alert";
 
 class CitySearch extends Component {
     state = {
         query: '',
         suggestions: [],
-        showSuggestions: false // initialize showSuggestions to false
+        showSuggestions: false, // initialize showSuggestions to false
+        infoText:''
     };
 
     componentDidMount() {
@@ -29,17 +31,27 @@ class CitySearch extends Component {
         const suggestions = this.props.locations.filter((location) => {
             return location.toUpperCase().indexOf(value.toUpperCase()) > -1;
         });
-        this.setState({
-            query: value,
-            suggestions,
-            showSuggestions: true // show suggestions when the input is changed
-        });
+        if (suggestions.length === 0) {
+            this.setState({
+                query: value,
+                suggestions,
+                infoText: 'City not found.'
+            });
+        } else {
+            this.setState({
+                query: value,
+                suggestions: [],
+                showSuggestions: true, // show suggestions when the input is changed
+                infoText:''
+            });
+        }
     };
 
     handleItemClicked = (suggestion) => {
         this.setState({
             query: suggestion,
-            showSuggestions: false // hide suggestions when an item is clicked
+            showSuggestions: false, // hide suggestions when an item is clicked
+            infoText:''
         });
 
         this.props.updateLocations(suggestion);
@@ -84,6 +96,11 @@ class CitySearch extends Component {
                                 {suggestion}
                             </li>
                         ))
+                    }
+                    {(this.state.infoText !== '') && 
+                        <li>
+                            <InfoAlert text={this.state.infoText} />
+                        </li>
                     }
                     <li key="all" onClick={() => this.handleItemClicked("all")}>
                         <b>See all cities</b>

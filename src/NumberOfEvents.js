@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { WarningAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
 
@@ -12,9 +13,15 @@ class NumberOfEvents extends Component {
         const value = parseInt(event.target.value);
 
         if (value < 1 || value > 256) {
-            this.setState({ errorText: "Specify a number between 1 and 256" });
+            this.setState({ 
+                eventsNumber: 32,
+                errorText: "Specify a number between 1 and 256" 
+            });
         } else {
-            this.setState({ eventsNumber: value })
+            this.setState({ 
+                eventsNumber: value,
+                errorText: ""
+            });
             this.props.updateEventsNumber(value);
         }
     }
@@ -31,7 +38,7 @@ class NumberOfEvents extends Component {
                 />
 
                 {this.state.errorText && (
-                 <div className="error-message">{this.state.errorText}</div>
+                 <WarningAlert text = {this.state.errorText}/>
                 )}
             </div>
         );
