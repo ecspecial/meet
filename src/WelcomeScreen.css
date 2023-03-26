@@ -14,7 +14,7 @@
 }
     
 .google-btn {
-    display: flex;
+    display: inline-flex;
     width: 184px;
     height: 42px;
     margin: 1rem;
@@ -37,7 +37,7 @@
     height: 40px;
     border-radius: 2px;
     background-color: #fff;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -52,7 +52,7 @@
     font-size: 14px;
     letter-spacing: 0.2px;
     font-family: "Roboto";
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding-left: 10px;
