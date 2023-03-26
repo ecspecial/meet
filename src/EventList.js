@@ -8,7 +8,7 @@ class EventList extends Component {
         return (
             <div>
                 <div>
-                    { !navigator.onLine && <WarningAlert text="You're currently using the app offline. Events might not be up to date."></WarningAlert>}
+                    { !navigator.onLine && <WarningAlert text="You're currently using the app offline. Events might not be up to date."></WarningAlert> }
                 </div>
 
                 <ul className="EventList">
