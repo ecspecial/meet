@@ -4,7 +4,7 @@ import './WelcomeScreen.css';
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
     (
-        <div className="WelcomeScreen fixed top-0 w-full min-h-screen flex items-center flex-col bg-slate-700 text-neutral-50 py-10 gap-6">
+        <div className="WelcomeScreen fixed top-0 flex items-center flex-col text-neutral-50 py-10 gap-6">
             <h1 className="text-5xl font-extrabold">Welcome to <span className="header-app-name">Meet Again</span></h1>
             <h4 className="text-xl">Sign in to see upcoming events around the world for full-stack developers</h4>
             <div className="button_cont">
