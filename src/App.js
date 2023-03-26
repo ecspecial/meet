@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import './nprogress.css'
+import './index.css'
 import CitySearch from './CitySearch';
 import EventList from './EventList';
 import NumberOfEvents from './NumberOfEvents';
@@ -48,7 +49,7 @@ class App extends Component {
       });
     }
   }
-  
+
   componentWillUnmount() {
     this.mounted = false;
   }

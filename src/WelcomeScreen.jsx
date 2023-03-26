@@ -4,30 +4,33 @@ import './WelcomeScreen.css';
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
     (
-        <div className="WelcomeScreen">
+        <div className="WelcomeScreen flex items-center flex-col gap-6">
             <h1>Welcome to the Meet app</h1>
             <h4>
             Log in to see upcoming events around the world for full-stack developers
             </h4>
             <div className="button_cont" align="center">
-                <div class="google-btn">
-                    <div class="google-icon-wrapper">
-                        <img
-                            class="google-icon"
-                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                            alt="Google sign-in"
-                        />
-                    </div>
-                    <button onClick={() => { props.getAccessToken() }}
-                        rel="nofollow noopener"
-                        class="btn-text"
-                    >
-                        <b>Sign in with google</b>
-                    </button>
+            <div className="google-btn flex items-center space-x-2">
+                <div className="google-icon-wrapper">
+                  <img
+                    className="google-icon"
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                    alt="Google sign-in"
+                   />
+                </div>
+                 <button
+                  className="btn-text px-3 py-2 rounded-md text-white font-bold bg-blue-500 hover:bg-blue-700"
+                   onClick={() => {
+                     props.getAccessToken();
+                   }}
+                   rel="nofollow noopener"
+                 >
+                   Sign in with Google
+                 </button>
                 </div>
             </div>
             <a
-                href="https://YOUR_GITHUB_USERNAME.github.io/meet/privacy.html"
+                href="https://ecspecial.github.io/meet/privacy.html"
                 rel="nofollow noopener"
             >
                 Privacy policy

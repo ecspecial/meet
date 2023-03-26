@@ -8,8 +8,10 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "atatus-spa": "^4.5.0",
+    "autoprefixer": "^10.4.14",
     "axios": "^1.3.4",
     "nprogress": "^0.2.0",
+    "postcss": "^8.4.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.1",
@@ -63,6 +65,7 @@
     "enzyme": "^3.11.0",
     "gh-pages": "^5.0.0",
     "jest-cucumber": "^3.0.1",
-    "puppeteer": "^18.1.0"
+    "puppeteer": "^18.1.0",
+    "tailwindcss": "^3.2.7"
   }
 }
