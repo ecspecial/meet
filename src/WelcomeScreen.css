@@ -8,10 +8,6 @@
     top: 0;
     background: white;
 }
-
-.button_cont {
-    display: flex;
-}
     
 .google-btn {
     display: inline-flex;
