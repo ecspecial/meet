@@ -37,7 +37,7 @@
     height: 40px;
     border-radius: 2px;
     background-color: #fff;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
 }
@@ -52,7 +52,7 @@
     font-size: 14px;
     letter-spacing: 0.2px;
     font-family: "Roboto";
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     padding-left: 10px;
