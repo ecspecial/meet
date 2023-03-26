@@ -4,22 +4,18 @@ import './WelcomeScreen.css';
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
     (
-        <div className="WelcomeScreen">
-            <h1>Welcome to the Meet app</h1>
-            <h4>
-            Log in to see upcoming events around the world for full-stack developers
-            </h4>
+        <div className="WelcomeScreen fixed top-0 w-full min-h-screen flex items-center flex-col bg-slate-700 text-neutral-50 py-10 gap-6">
+            <h1 className="text-5xl font-extrabold">Welcome to <span className="header-app-name">Meet Again</span></h1>
+            <h4 className="text-xl">Sign in to see upcoming events around the world for full-stack developers</h4>
             <div className="button_cont">
-                <div className="google-btn">
-                    <div className="google-icon-wrapper">
-                      <img
-                        className="google-icon"
+                <div className="google-button flex flex-row rounded">
+                        <img
+                        className="google-icon bg-white p-3 rounded"
                         src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                         alt="Google sign-in"
-                       />
-                    </div>
+                        />
                         <button
-                            className="btn-text"
+                            className="btn-text px-3 rounded"
                             onClick={() => {
                             props.getAccessToken();
                             }}
