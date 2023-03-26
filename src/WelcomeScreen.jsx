@@ -4,12 +4,12 @@ import './WelcomeScreen.css';
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
     (
-        <div className="WelcomeScreen flex items-center flex-col gap-6">
+        <div className="WelcomeScreen">
             <h1>Welcome to the Meet app</h1>
             <h4>
             Log in to see upcoming events around the world for full-stack developers
             </h4>
-            <div className="button_cont flex items-center space-x-2" align="center">
+            <div className="button_cont">
                 <div className="google-btn">
                     <div className="google-icon-wrapper">
                       <img
@@ -19,7 +19,7 @@ function WelcomeScreen(props) {
                        />
                     </div>
                         <button
-                            className="btn-text px-3 py-2 rounded-md text-white font-bold bg-blue-500 hover:bg-blue-700"
+                            className="btn-text"
                             onClick={() => {
                             props.getAccessToken();
                             }}
