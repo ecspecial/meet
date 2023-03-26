@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { WarningAlert } from "./Alert";
+import { ErrorAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
 
@@ -38,7 +38,7 @@ class NumberOfEvents extends Component {
                 />
 
                 {this.state.errorText && (
-                 <WarningAlert text = {this.state.errorText}/>
+                 <ErrorAlert text = {this.state.errorText}/>
                 )}
             </div>
         );
