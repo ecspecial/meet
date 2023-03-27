@@ -1,3 +1,9 @@
+.WelcomeScreen * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 .WelcomeScreen {
     padding:  2% 0%;
     text-align: center;
