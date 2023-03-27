@@ -1,4 +1,5 @@
 .WelcomeScreen {
+    padding:  2% 0%;
     text-align: center;
     position: fixed;
     display: flex;
