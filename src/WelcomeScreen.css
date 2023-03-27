@@ -1,9 +1,3 @@
-.WelcomeScreen * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
 .WelcomeScreen {
     padding:  2% 0%;
     text-align: center;
@@ -15,6 +9,7 @@
     height: 100%;
     top: 0;
     background: white;
+    box-sizing: border-box;
 }
     
 .google-btn {
