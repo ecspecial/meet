@@ -119,19 +119,6 @@ input[type="number"] {
   text-align: center;
 }
 
-.button-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  padding: 20px;
-  font-family: sans-serif;
-}
-
-/* .Alert {
-  position: fixed;
-  top: 20px;
-} */
-
 .data-vis-wrapper {
   display: flex;
   align-items: center;
