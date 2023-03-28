@@ -18,8 +18,8 @@ defineFeature(feature, test => {
             AppWrapper = mount(<App />);
         });
 
-        then('a maximum of 32 events will appear', () => {
-            AppWrapper.update();
+        then('a maximum of 32 events will appear', async () => {
+            await AppWrapper.update();
             expect(AppWrapper.find(EventList).props().eventsNumber).toEqual(32);
             expect(AppWrapper.find('.EventList li').length).toBeLessThanOrEqual(32);
         });

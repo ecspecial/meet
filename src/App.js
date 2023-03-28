@@ -46,6 +46,14 @@ class App extends Component {
 
   async componentDidMount() {
     this.mounted = true;
+
+    // Run only this code if running `npm run test`
+    // getEvents().then((events) => {
+    //   if (this.mounted) {
+    //     this.setState({ events, locations: extractLocations(events) });
+    //   }
+    // });
+
     const accessToken = localStorage.getItem('access_token');
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
@@ -65,6 +73,8 @@ class App extends Component {
   }
 
   render () {
+
+    {/* Comment out when running test `npm run test` for localhost */}
     if (this.state.showWelcomeScreen === undefined) return <div className="App" />
 
     return (
@@ -72,6 +82,7 @@ class App extends Component {
         <CitySearch locations = {this.state.locations} updateLocations={this.updateLocations}/>
         <NumberOfEvents updateEventsNumber={this.updateEventsNumber}/>
         <EventList events = {this.state.events} eventsNumber={this.state.eventsNumber}/>
+        {/* Comment out when running test for localhost */}
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
 
       </div>
