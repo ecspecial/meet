@@ -3,6 +3,7 @@ import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Responsive
 import './App.css';
 import './nprogress.css'
 import './index.css'
+import EventGenre from './EventGenre';
 import CitySearch from './CitySearch';
 import EventList from './EventList';
 import NumberOfEvents from './NumberOfEvents';
@@ -84,8 +85,9 @@ class App extends Component {
         <CitySearch locations = {this.state.locations} updateLocations={this.updateLocations}/>
         <NumberOfEvents updateEventsNumber={this.updateEventsNumber}/>
         <h4>Events in each city</h4>
-
-         <ResponsiveContainer height={400}>
+        <div className='data-vis-wrapper'>
+        <EventGenre events={this.state.events}/>
+          <ResponsiveContainer height={400}>
             <ScatterChart
               margin={{
                 top: 20, right: 20, bottom: 20, left: 20,
@@ -97,7 +99,8 @@ class App extends Component {
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
               <Scatter data={this.getData()} fill="#8884d8" />
             </ScatterChart>
-         </ResponsiveContainer>
+          </ResponsiveContainer>
+        </div>
 
         <EventList events = {this.state.events} eventsNumber={this.state.eventsNumber}/>
         {/* Comment out when running test for localhost */}
