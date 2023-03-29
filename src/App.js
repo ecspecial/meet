@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import './App.css';
 import './nprogress.css'
 import './index.css'
@@ -54,6 +55,7 @@ class App extends Component {
     //   }
     // });
 
+    {/* Comment out when running test `npm run test` for localhost */}
     const accessToken = localStorage.getItem('access_token');
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);
@@ -81,6 +83,22 @@ class App extends Component {
       <div className="App">
         <CitySearch locations = {this.state.locations} updateLocations={this.updateLocations}/>
         <NumberOfEvents updateEventsNumber={this.updateEventsNumber}/>
+        <h4>Events in each city</h4>
+
+         <ResponsiveContainer height={400}>
+            <ScatterChart
+              margin={{
+                top: 20, right: 20, bottom: 20, left: 20,
+              }}
+            >
+              <CartesianGrid />
+              <XAxis type="category" dataKey="city" name="city" />
+              <YAxis type="number" dataKey="number" name="number of events" />
+              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter data={this.getData()} fill="#8884d8" />
+            </ScatterChart>
+         </ResponsiveContainer>
+
         <EventList events = {this.state.events} eventsNumber={this.state.eventsNumber}/>
         {/* Comment out when running test for localhost */}
         <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => { getAccessToken() }} />
