@@ -3,6 +3,21 @@ import { shallow } from 'enzyme';
 import CitySearch from '../CitySearch';
 import { mockData } from '../mock-data';
 import { extractLocations } from '../api';
+const { ResizeObserver } = window;
+
+  beforeEach(() => {
+    delete window.ResizeObserver;
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+  });
+
+  afterEach(() => {
+    window.ResizeObserver = ResizeObserver;
+    jest.restoreAllMocks();
+  });
 
 describe('<CitySearch /> component', () => {
     

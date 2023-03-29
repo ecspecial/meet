@@ -3,6 +3,21 @@ import { shallow } from "enzyme";
 import { defineFeature, loadFeature } from "jest-cucumber";
 import Event from "../Event";
 import { mockData } from "../mock-data";
+const { ResizeObserver } = window;
+
+  beforeEach(() => {
+    delete window.ResizeObserver;
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+  });
+
+  afterEach(() => {
+    window.ResizeObserver = ResizeObserver;
+    jest.restoreAllMocks();
+  });
 
 const feature = loadFeature('src/feature/showHideAnEventsDetails.feature');
 

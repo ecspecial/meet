@@ -2,6 +2,21 @@ import React from "react";
 import { shallow } from 'enzyme';
 import { mockData } from "../mock-data";
 import Event from "../Event";
+const { ResizeObserver } = window;
+
+  beforeEach(() => {
+    delete window.ResizeObserver;
+    window.ResizeObserver = jest.fn().mockImplementation(() => ({
+      observe: jest.fn(),
+      unobserve: jest.fn(),
+      disconnect: jest.fn(),
+    }));
+  });
+
+  afterEach(() => {
+    window.ResizeObserver = ResizeObserver;
+    jest.restoreAllMocks();
+  });
 
 describe('<Event /> component', () => {
     
