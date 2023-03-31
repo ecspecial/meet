@@ -1,13 +1,19 @@
 import React from "react";
 import './WelcomeScreen.css';
+import EventList from "./EventList";
+import { welcomeData } from "./welcomeData";
 
 function WelcomeScreen(props) {
     return props.showWelcomeScreen ?
     (
         <div className="WelcomeScreen">
         <h1>Welcome to the Meet app</h1>
+        <div>
+            <EventList events = {welcomeData} eventsNumber={32}/>
+        </div>
         <h4>
-            Log in to see upcoming events around the world for full-stack developers
+            We invite you into the world of programming!<br/>
+            Simply sign in with Google to get more than 100 events all around the world!
         </h4>
         <div className="google-btn">
             <div className="google-icon-wrapper">
