@@ -84,20 +84,16 @@ class App extends Component {
       <div className="App">
         <CitySearch locations = {this.state.locations} updateLocations={this.updateLocations}/>
         <NumberOfEvents updateEventsNumber={this.updateEventsNumber}/>
-        <h4>Events in each city</h4>
+        <h4>Events by cities</h4>
         <div className='data-vis-wrapper'>
         <EventGenre events={this.state.events}/>
-          <ResponsiveContainer height={400}>
-            <ScatterChart
-              margin={{
-                top: 20, right: 20, bottom: 20, left: 20,
-              }}
-            >
+          <ResponsiveContainer height={300}>
+            <ScatterChart>
               <CartesianGrid />
-              <XAxis type="category" dataKey="city" name="city" />
-              <YAxis type="number" dataKey="number" name="number of events" />
-              <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-              <Scatter data={this.getData()} fill="#8884d8" />
+              <XAxis type="category" dataKey="city" name="City" tick={{ fill: '#FFFAFA' }} />
+              <YAxis type="number" dataKey="number" name="Number of events" tick={{ fill: '#FFFAFA' }} />
+              <Tooltip contentStyle={{ backgroundColor: '#7D8186' }} cursor={{ strokeDasharray: '3 3' }} />
+              <Scatter data={this.getData()} fill="#32CD32" />
             </ScatterChart>
           </ResponsiveContainer>
         </div>

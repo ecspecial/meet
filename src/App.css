@@ -5,7 +5,12 @@
 }
 
 .App * {
+  color: #FFFAFA;
   box-sizing: border-box;
+}
+
+body {
+  background-color: #292a2d;
 }
 
 ul {
@@ -27,13 +32,18 @@ p {
 input[type="text"],
 input[type="number"] {
   padding: 8px 6px 8px 10px;
-  border-radius: 4px;
+  border-radius: 8px;
   outline: none;
+  background-color: #5F6368;
   border: 1px solid #ccc;
   font-size: 14px;
   line-height: 20px;
   align-self: center;
   height: 38px;
+}
+
+input::placeholder {
+  color: #FFFFFF;
 }
 
 .city {
@@ -63,7 +73,7 @@ input[type="number"] {
 .suggestions > li {
   text-align: left;
   padding: 8px 6px 8px 10px;
-  background-color: #eee;
+  background-color: #5F6368;
   cursor: default;
 }
 
@@ -73,26 +83,17 @@ input[type="number"] {
 }
 
 .suggestions > li:hover {
-  background-color: #bcdcdb;
-}
-
-.event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
+  background-color: #7D8186;
 }
 
 .details-btn {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
-  padding: 5px 8px;
-  border-radius: 4px;
+  display: flex;
+  align-self: flex-end;
+  padding: 10px 16px;
+  border-radius: 8px;
   outline: none;
   cursor: pointer;
+  background-color: #292a2d;
 }
 
 .name {
@@ -123,7 +124,11 @@ input[type="number"] {
 .data-vis-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 30px;
 }
 .data-vis-wrapper .recharts-responsive-container {
   min-width: 100%;
@@ -131,6 +136,56 @@ input[type="number"] {
 }
 .recharts-surface {
   overflow: visible;
+}
+
+.EventList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  margin: 10px auto;
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #5F6368;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  margin-bottom: 0px;
+  text-align: left;
+  position: relative;
+}
+
+/* Responsive Design */
+
+@media (max-width: 320px) {
+  .EventList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 320px) {
+  .EventList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .EventList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .event {
+    flex-basis: calc(25% - 15px); /* -15px to account for the spacing */
+  }
+  .EventList {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -144,3 +199,4 @@ input[type="number"] {
     margin: 0 auto;
   }
 }
+

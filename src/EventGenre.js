@@ -7,7 +7,7 @@ import { PieChart, Pie, ResponsiveContainer, Cell, Legend  } from "recharts";
     
     const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
 
-    const colors = ['#E91E63', '#BB36D1', '#8258D1', '#57ACDC', '#57DCBE'];
+    const colors = ['#00CCFF', '#32CD32', '#FF7F50', '#EE82EE', '#FFD700'];
 
     useEffect(() => {
         const getData = () => {
@@ -21,13 +21,13 @@ import { PieChart, Pie, ResponsiveContainer, Cell, Legend  } from "recharts";
     }, [events]);
 
       return (
-        <ResponsiveContainer height={400}>
+        <ResponsiveContainer height={300}>
           <PieChart width={400} height={400}>
-          <Legend verticalAlign="top" height={36}/>
+          <Legend verticalAlign="top"/>
             <Pie
               data={data}
-              cx={200}
-              cy={200}
+              cx="50%"
+              cy="50%"
               labelLine={false}
               label={({ name, percent }) => `${(percent * 100).toFixed(0)}%`}
               outerRadius={80}

@@ -18,16 +18,18 @@ class Event extends Component {
     const { details } = this.state;
 
     return (
-        <div className="event">
-            <h1 className="event-summary">
-              {event.summary}
-            </h1>
-            <p className="event-start">
-              {new Date(event.start.dateTime).toString()}
-            </p>
-            <p className="event-location">
-              {`@${event.summary} | ${event.location}`}
-            </p>
+          <div className="event">
+            <div>
+              <h1 className="event-summary">
+                {event.summary}
+              </h1>
+              <p className="event-start">
+                {new Date(event.start.dateTime).toString()}
+              </p>
+              <p className="event-location">
+                {`@${event.summary} | ${event.location}`}
+              </p>
+            </div>
 
             {
               details && (
@@ -45,10 +47,11 @@ class Event extends Component {
               )
             }
 
-            <button className="details-btn" onClick={() => this.toggleDetails()}>
-              {details ? "hide details" : "show details"}
-            </button>
-        </div>
+              <button className="details-btn" onClick={() => this.toggleDetails()}>
+                {details ? "hide details" : "show details"}
+              </button>
+            
+        </div>          
 
     );
 
