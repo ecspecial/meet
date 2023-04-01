@@ -56,7 +56,7 @@ class App extends Component {
     //   }
     // });
 
-    {/* Comment out when running test `npm run test` for localhost */}
+    {/* Comment when running test `npm run test` for localhost */}
     const accessToken = localStorage.getItem('access_token');
     const isTokenValid = (await checkToken(accessToken)).error ? false : true;
     const searchParams = new URLSearchParams(window.location.search);

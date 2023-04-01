@@ -161,6 +161,10 @@ input::placeholder {
   text-align: left;
 }
 
+.event-header {
+  min-height: 150px;
+}
+
 .event-details {
   max-height: 200px; /* set the max height of the details container */
   overflow-y: auto; /* add a scrollbar if the content overflows */

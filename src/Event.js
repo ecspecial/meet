@@ -19,10 +19,10 @@ class Event extends Component {
 
     return (
           <div className="event">
-            <div>
-              <h1 className="event-summary">
+            <div className="event-header">
+              <h3 className="event-summary">
                 {event.summary}
-              </h1>
+              </h3>
               <p className="event-start">
                 {new Date(event.start.dateTime).toString()}
               </p>
