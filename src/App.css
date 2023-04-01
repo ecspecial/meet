@@ -144,12 +144,14 @@ input::placeholder {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   margin: 10px auto;
-  grid-auto-rows: 1fr;
+  grid-template-rows: repeat(auto-fill, 1fr);
 }
 
 .event {
   position: relative;
   display: flex;
+  flex-shrink: 1;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
   background-color: #5F6368;
